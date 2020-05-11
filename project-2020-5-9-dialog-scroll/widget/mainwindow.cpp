@@ -10,15 +10,31 @@ MainWindow::MainWindow(QWidget *parent)
    // QLabel *l=new QLabel();
    //        l= ui->label_5;
   //         l->setText("xxxx");
-           QGridLayout *pLayout = new QGridLayout();//网格布局
-              for(int i = 0; i < 100; i++)
-              {
-                  QPushButton *pBtn = new QPushButton();
-                  pBtn->setText(QString("按钮%1").arg(i));
-                  pBtn->setMinimumSize(QSize(60,30));   //width height
-                  pLayout->addWidget(pBtn);//把按钮添加到布局控件中
-              }
-              ui->scrollArea_2->widget()->setLayout(pLayout);//把布局放置到QScrollArea的内部QWidget中
+
+
+           QGridLayout *glay = new QGridLayout();
+              glay->setSpacing(0);
+              glay->setMargin(0);
+              glay->setHorizontalSpacing(0);
+              glay->setVerticalSpacing(0);
+              glay->setContentsMargins(0,0,0,0);
+              QPushButton *bt1 = new QPushButton("pushButton00");
+              QPushButton *bt2 = new QPushButton("pushButton10");
+              QPushButton *bt3 = new QPushButton("pushButton20");
+              QPushButton *bt4 = new QPushButton("pushButton01");
+              QPushButton *bt5 = new QPushButton("pushButton21");
+
+
+              glay->addWidget(bt1,0,0);
+              glay->addWidget(bt2,1,0);
+              glay->addWidget(bt3,2,0);
+
+              glay->addWidget(bt4,0,1);
+              glay->addWidget(bt5,2,1);
+
+
+
+              ui->scrollArea_2->widget()->setLayout(glay);//把布局放置到QScrollArea的内部QWidget中
 
 }
 
